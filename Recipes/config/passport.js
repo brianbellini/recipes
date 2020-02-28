@@ -2,14 +2,14 @@ var passport = require('passport');
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 var User = require('../models/user');
 
-// configuring Passport!
+// Passport
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_SECRET,
     callbackURL: process.env.GOOGLE_CALLBACK
   },
   function(accessToken, refreshToken, profile, cb) {
-    // a user has logged in via OAuth!
+    // a user has logged in
     User.findOne({ 'googleId': profile.id }, function(err, user) {
       if (err) return cb(err);
       if (user) {
@@ -22,7 +22,7 @@ passport.use(new GoogleStrategy({
           return cb(null, user);
         }
       } else {
-        // we have a new student via OAuth!
+        // we have a new user
         var newUser = new User({
           name: profile.displayName,
           email: profile.emails[0].value,
