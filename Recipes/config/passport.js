@@ -2,6 +2,7 @@ var passport = require('passport');
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 var User = require('../models/user');
 
+console.log("++++++++++" , process.env)
 // Passport
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
@@ -9,6 +10,7 @@ passport.use(new GoogleStrategy({
     callbackURL: process.env.GOOGLE_CALLBACK
   },
   function(accessToken, refreshToken, profile, cb) {
+    console.log("==========================")
     // a user has logged in
     User.findOne({ 'googleId': profile.id }, function(err, user) {
       if (err) return cb(err);
