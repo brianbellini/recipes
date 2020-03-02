@@ -1,5 +1,6 @@
-exports.recipes = [
+module.exports.recipes = [
     {title: "HONEY PORK WITH BOK CHOY",
+    rating: 5,
     category: "Dinner",
     image: "public/images/meals/honey_pork_with_bok_choy.png",
     servings: 2,
@@ -33,6 +34,7 @@ exports.recipes = [
     },
     
     {title: "BALI BUDDHA BOWL",
+    rating: 5,
     category: "Dinner",
     image: "public/images/meals/bali_buddha_bowl.png",
     servings: 2,
@@ -61,6 +63,7 @@ exports.recipes = [
     },
 
     {title: "BBQ LAMB & MIXED PEPPER SALAD",
+    rating: 5,
     category: "Dinner",
     image: "public/images/meals/bbq_lamb_mixed_pepper_salad.png",
     servings: 2,
@@ -86,6 +89,7 @@ exports.recipes = [
     },
 
     {title: "KOREAN BEEF BULGOGI BOWL",
+    rating: 5,
     category: "Dinner",
     image: "public/images/meals/korean_beef_bulgogi_bowl.png",
     servings: 2,
@@ -119,6 +123,7 @@ exports.recipes = [
     },
 
     {title: "BAKED SALMON WITH SWEET POTATO SALAD",
+    rating: 5,
     category: "Dinner",
     image: "public/images/meals/baked_salmon_with_sweet_potato_salad.png",
     servings: 2,
@@ -144,6 +149,7 @@ exports.recipes = [
     },
 
     {title: "ONE POT CHICKEN MEATBALLS WITH RISONI",
+    rating: 5,
     category: "Dinner",
     image: "public/images/meals/one_pot_chicken_meatballs_with_risoni.png",
     servings: 2,
