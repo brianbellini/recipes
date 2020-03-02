@@ -8,10 +8,6 @@
   <title><%= title %></title>
 </head>
 <body>
-  <nav>
-    <a href="/recipes/new" <%- title === 'Add Recipe' ? 'class="active"' : '' %>>ADD RECIPE</a>
-    <a href="/movies/new" <%- title === 'Add Movie' ? 'class="active"' : '' %>>ADD MOVIE</a>
-    <a href="/movies" <%- title === 'All Movies' ? 'class="active"' : '' %>>ALL MOVIES</a>
-  </nav>
+  <%- include('../partials/nav') %>
   <main>
     <h1><%= title %></h1>
