@@ -1,7 +1,12 @@
 <%- include('../partials/header') %>
 
 <section>
-    index.ejs
+    <% recipes.forEach(function(r) { %>
+        <div class="recipe-box">
+            <img class= "recipe-box-pic" src=<%= ${r.image} %> alt="Picture of <%= ${r.title} %>.">
+            <%= ${r.title} %>
+        </div>
+    <% }); %>
 </section>
 
 <%- include('../partials/footer') %>
