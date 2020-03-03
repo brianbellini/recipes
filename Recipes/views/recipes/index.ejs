@@ -1,7 +1,39 @@
 <%- include('../partials/header') %>
+<body id="recipes-index">
+    <div class="page-topper">
+        <div class="page-title">
+            <h1><%= title %></h1>
+        </div>
+    </div>
+    <%- include('../partials/nav') %>
+    <main>
 
-<section>
-    Words
-</section>
+    <section class="page-grid">
+        <div class="panel">
+
+            <% recipes.forEach(function(r) { %>
+                <a href="/recipes/<%= r._id %>">
+            <table class="recipe-panel">
+                <tbody>
+                <tr>
+                    <td>
+                        <img class="panel-picture"
+                        src="<%= r.image %>""
+                        alt="Plate of <%= r.title %>">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="panel-title">
+                        <%= r.title %>
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+        </a>
+        <% }) %>
+
+
+        </div>
+    </section>
 
 <%- include('../partials/footer') %>

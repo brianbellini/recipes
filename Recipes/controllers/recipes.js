@@ -7,6 +7,6 @@ module.exports = {
 
 function index(req, res, next) {
     Recipe.find({}, function(err, recipes) {
-    res.render('recipes/index', {title: "This is a title", recipes});
+    res.render('recipes/index', {title: "All Recipes", user: true, recipes});
 });
 }
