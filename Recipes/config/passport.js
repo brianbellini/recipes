@@ -1,6 +1,6 @@
-var passport = require('passport');
-var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-var User = require('../models/user');
+const passport = require('passport');
+const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+const User = require('../models/user');
 
 console.log("++++++++++" , process.env)
 // Passport
@@ -10,21 +10,14 @@ passport.use(new GoogleStrategy({
     callbackURL: process.env.GOOGLE_CALLBACK
   },
   function(accessToken, refreshToken, profile, cb) {
-    console.log("==========================")
-    // a user has logged in
+    console.log( "a user has logged in with OAuth..." );
+
     User.findOne({ 'googleId': profile.id }, function(err, user) {
       if (err) return cb(err);
       if (user) {
-        if (!user.avatar) {
-          user.avatar = profile.photos[0].value;
-          user.save(function(err) {
-            return cb(null, user);
-          });
-        } else {
-          return cb(null, user);
-        }
+        return cb(null, user);
       } else {
-        // we have a new user
+        // we have a new student via OAuth!
         var newUser = new User({
           name: profile.displayName,
           email: profile.emails[0].value,
@@ -38,6 +31,7 @@ passport.use(new GoogleStrategy({
     });
   }
 ));
+  
 
 passport.serializeUser(function(user, done) {
   done(null, user.id);

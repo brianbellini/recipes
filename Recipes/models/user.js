@@ -3,7 +3,8 @@ const Schema = mongoose.Schema;
 
 const noteSchema = new Schema({
   content: String,
-  rating: {type: Number, min: 1, max: 5, default: 5}
+  rating: {type: Number, min: 1, max: 5, default: 5},
+  recipeID: {type: Schema.Types.ObjectId, ref: 'Recipe'},
 }, {
   timestamps: true
 });
@@ -14,7 +15,7 @@ const userSchema = new Schema({
   email: String,
   avatar: String,
   googleId: String,
-  comments: [{type: Schema.Types.ObjectId, ref: 'Performer'}]
+  comments: [noteSchema]
 }, {
   timestamps: true
 });
