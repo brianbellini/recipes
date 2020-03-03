@@ -12,24 +12,27 @@
         <div class="panel">
 
             <% recipes.forEach(function(r) { %>
-                <a href="/recipes/<%= r._id %>">
-            <table class="recipe-panel">
+                
+            <table class="recipe-panel shadow">
                 <tbody>
                 <tr>
                     <td>
-                        <img class="panel-picture"
-                        src="<%= r.image %>""
-                        alt="Plate of <%= r.title %>">
+                        <a href="/recipes/<%= r._id %>">
+                            <img class="panel-picture"
+                            src="<%= r.image %>""
+                            alt="Plate of <%= r.title %>">
+                        </a>
                     </td>
                 </tr>
                 <tr>
                     <td class="panel-title">
-                        <%= r.title %>
+                        <a href="/recipes/<%= r._id %>">
+                            <%= r.title %>
+                        </a>
                     </td>
                 </tr>
             </tbody>
             </table>
-        </a>
         <% }) %>
 
 

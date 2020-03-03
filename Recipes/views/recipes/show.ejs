@@ -1,60 +1,28 @@
 <%- include('../partials/header') %>
-<body>
+<body id="recipes-show">
+    <div class="page-topper">
+        <div class="page-title">
+            <h1><%= title %></h1>
+        </div>
+    </div>
     <%- include('../partials/nav') %>
     <main>
-      <h1><%= title %></h1>
+
       
-<section id="show-page">
+    <section class="show-page-grid">
     <div class= "image-panel">
-        <%= `<img class= "recipe-picture" src=${recipe.image} alt="Picture of finished recipe."` %>
+        <img class= "recipe-picture shadow" src=<%=recipe.image%> alt="Picture of finished recipe.">
     </div>
 
     <div class= "title-panel">
         <div><%= recipe.title %></div>
         <div><%= recipe.rating %></div>
-        <div><%= user.comments.content %></div>
     </div>
 
-    <div class= "ingredients-panel">
-        <table>
-            <thead>
-                <tr>
-                    <th>Ingredients</th>
-                </tr>
-            </thead>
-            <tbody>
-                
-                <% recipe.ingredientList.section.forEach(s) { %>
-                    <%= <tr> %>
-                        <%= `<td class= "i-section">${s.title}</td>` %>
-                    <%= </tr> %>
-                    <% recipe.ingredientList.section.ingredients.forEach(i) { %>
-                        <%= <tr> %>
-                            <%= `<td class= "i-item">${i.quantity} ${i.unit} ${i.ingredient}</td>` %>
-                        <%= </tr> %>
-                    <% } %>
-                <% } %>
-            </tbody>
-        </table>
-    </div>
+    
 
-    <div class= "method-panel">
-        <table>
-            <thead>
-                <tr>
-                    <th>Method</th>
-                </tr>
-            </thead>
-            <tbody>
 
-                <% recipe.method.forEach(m) { %>
-                    <%= <tr> %>
-                        <%= `<td class= "m-item">${m}` %>
-                    <%= </tr> %>
-                <% } %>
-            </tbody>
-        </table>
-    </div>
+
 </section>
 
 <%- include('../partials/footer') %>
