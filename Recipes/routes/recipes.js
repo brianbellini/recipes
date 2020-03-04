@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const recipesCtrl = require('../controllers/recipes')
 
-router.get('/', isLoggedIn, recipesCtrl.index);
+router.get('/', recipesCtrl.index);
 router.get('/:id', isLoggedIn, recipesCtrl.show);
 
 function isLoggedIn(req, res, next) {

@@ -7,8 +7,11 @@ module.exports = {
 };
 
 function index(req, res, next) {
+    const userId = req.user.id ? req.user.id : "";
+
+
     Recipe.find({}, function(err, recipes) {
-    res.render('recipes/index', {title: "All Recipes", user: false, recipes});
+    res.render('recipes/index', {title: "All Recipes", user: req.user.id, recipes});
 });
 }
 
@@ -16,7 +19,7 @@ function show(req, res, next) {
     Recipe.findById(req.params.id)
     .exec(function(err, recipe) {
         console.log(recipe);
-        res.render('recipes/show', {recipe, title: recipe.title, user: true})
+        res.render('recipes/show', {recipe, title: recipe.title, user: req.user.id})
     })
 }
 

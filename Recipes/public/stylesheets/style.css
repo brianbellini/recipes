@@ -132,28 +132,41 @@ nav {
   height: 30vh;
   border: 20px solid black;
   border-radius: 3px;
-
+  object-fit: cover;
 }
 
 .title-panel {
+
   width: 30vw;
   height: 30vh;
-  border: 20px solid black;
-  background-color: #D8DFE6;
+  
   grid-area: 2 / 4;
   border-radius: 3px;
 }
 
 .rating {
   width: 100%;
-  /* border: 1px solid grey; */
   text-align: center;
   padding: 10px;
   margin: 0 auto;
   font-size: 20px;;
+  background-color: #D8DFE6;
 }
 
 .notes {
   padding: 10px;
-  height: 100%;
+  height: 85%;
+  overflow: scroll;
+  font-size: 20px;
 }
+
+.ingredients-panel {
+
+  width: 30vw;
+  height: 30vh;
+  /* border: 20px solid black; */
+  
+  grid-area: 4 / 2;
+  border-radius: 3px;
+}
+

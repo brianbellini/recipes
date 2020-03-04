@@ -11,12 +11,11 @@ const recipeSchema = new Schema ({
         prep: Number,
         cook: Number,
     },
-    ingredientList: [{ section: [{title: String,
-                                ingredients: [{ ingredient: String,
-                                                quantity: Number,
-                                                unit: String }]
-                                }]
-                    }],
+    ingredientList: [{section: String,
+                    ingredients: [{ ingredient: String,
+                                        quantity: Number,
+                                        unit: String }]}
+                        ],
     method: [String],
 }, {
     timestamps: true,

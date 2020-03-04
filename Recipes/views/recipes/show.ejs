@@ -15,7 +15,7 @@
     </div>
 
     <div class= "title-panel">
-        <!-- <div><%= recipe.title %></div> -->
+
         <div class="rating">
             <% for (i = 0; i < recipe.rating; i++) { %>
                 <%= "★" %>
@@ -30,6 +30,46 @@
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas non voluptatum aut. Cumque, eveniet eaque odio laborum molestiae, veritatis ullam mollitia quidem amet non facilis esse molestias debitis rerum quam!
 
         </div>
+    </div>
+
+    <div class="ingredients-panel">
+        <table>
+            <% recipe.ingredientList.forEach(function(s) { %>
+            <thead>
+                <tr>
+                    <th><%= s.section %></th>
+                </tr>
+            </thead>
+                <tbody>
+                    <% s.ingredients.forEach(function(i) { %>
+                        <tr>
+                            <td>
+                            <%= i.quantity %> <%= i.unit %> <%= i.ingredient %>
+                            </td>
+                        </tr>
+
+                    <% }) %>
+                </tbody>
+            <% }) %>
+        </table>
+    </div>
+
+    <div class="method-panel">
+        <table>
+            <thead>
+                <tr>
+                    <th>Method</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% recipe.method.forEach(function(m) { %>
+                    <%= m %>
+
+                <% }) %>
+            </tbody>
+
+        </table>
+
     </div>
 
 </section>
