@@ -7,11 +7,9 @@ module.exports = {
 };
 
 function index(req, res, next) {
-    const userId = req.user.id ? req.user.id : "";
-
-
+  console.log(req.user)
     Recipe.find({}, function(err, recipes) {
-    res.render('recipes/index', {title: "All Recipes", user: req.user.id, recipes});
+    res.render('recipes/index', {title: "All Recipes", user: req.user, recipes});
 });
 }
 
@@ -22,19 +20,3 @@ function show(req, res, next) {
         res.render('recipes/show', {recipe, title: recipe.title, user: req.user.id})
     })
 }
-
-/*
-function show(req, res) {
-  Movie.findById(req.params.id)
-  .populate('cast').exec(function(err, movie) {
-    // Performer.find({}).where('_id').nin(movie.cast)
-    Performer.find({_id: {$nin: movie.cast}})
-    .exec(function(err, performers) {
-      console.log(performers);
-      res.render('movies/show', {
-        title: 'Movie Detail', movie, performers
-      });
-    });
-  });
-}
-*/
