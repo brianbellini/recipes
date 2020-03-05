@@ -56,7 +56,8 @@
                         <form id="add-review-form" method="POST"
                         action="/recipes/<%= recipe._id %>/reviews">
                         <input type="text" name="content">
-                        <input type="text" value="<%= user._id %>" name="creatorID" hidden>
+                        <input type="text" value="<%= user.googleId %>" name="creatorID" hidden>
+                        <input type="text" value="<%= user.name %>" name="creatorName" hidden>
                         <input type="submit" value="Add Review">
                         </form>
                     </td>
@@ -69,14 +70,24 @@
                         <% if (recipe.reviews.length) { %>
                             <% recipe.reviews.forEach(function(r) { %>
                                 <tr>
-                                    <% console.log("USER: ", user._id) %>
+                                    <% console.log("USER: ", user.googleId) %>
                                     <% console.log("CREATOR: ", r.creatorID) %>
-                                    <% if (user._id == r.creatorID) { %>
+                                    <% if (user.googleId == r.creatorID) { %>
                                         <td>
-                                        <a class="not-a-button" href="/recipes/#/edit/">Edit</a>
+                                            <form id="edit-review-button" method="GET"
+                                            action="/recipes/<%= r._id %>/edit/">
+                                            <input type="submit" value="✏️">
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <form id="delete-review-button" method="POST"
+                                            action="/recipes/<%= r._id %>?_Method:DELETE">
+                                            <input hidden type="text" name="recipeID" value="<%= recipe._id %>">
+                                            <input type="submit" value="🗑">
+                                            </form>
                                         </td>
                                     <% } else { %>
-                                        <td>name :  </td>
+                                        <td><%= r.creatorName %> :  </td>
                                     <% } %>
 
 

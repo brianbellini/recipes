@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const reviewSchema = new Schema({
     content: String,
     creatorID: String,
+    creatorName: String,
   }, {
     timestamps: true
   });

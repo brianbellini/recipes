@@ -1,6 +1,7 @@
 body {
   /* padding: 50px; */
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  /* font-family: 'Ubuntu', sans-serif; */
+  font: 14px 'Oxygen', Helvetica, Arial, sans-serif;
   margin: 0;
 }
 
@@ -87,7 +88,10 @@ h1 {
 nav {
   display: block;
   text-align: left;
-  padding:10px;
+}
+nav > a {
+  padding-left:20px;
+  color: black;
 }
 
 #recipes-index {
@@ -142,4 +146,9 @@ nav {
 
 #comment-panel {
   
+}
+
+.nav-icon {
+  font-size: 30px;
+  text-decoration: none;
 }

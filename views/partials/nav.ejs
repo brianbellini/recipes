@@ -1,10 +1,10 @@
 <div class="menu-bar">
     <nav>
         <% if (user) { %>
-            <a href="/logout">Log Out</a>
+            <a class="nav-icon" href="/logout">🔓</a>
         <% } else { %>
-            <a href="/auth/google">Login</a>
+            <a class="nav-icon" href="/auth/google">🔒</a>
         <% } %>
-        <a href="/recipes" <%- title === 'All Recipes' ? 'class="active"' : '' %>>BROWSE</a>
+        <a class="nav-icon" href="/recipes" <%- title === 'All Recipes' ? 'class="active"' : '' %>>Home</a>
     </nav>
 </div>
