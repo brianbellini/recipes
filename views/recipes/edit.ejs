@@ -11,17 +11,70 @@
     <section class="page-grid">
 
         <div class="panel">
+            
+            <table class="recipe-panel shadow">
+                <tbody>
+                    <tr>
+                        <td>
+                            <img class= "panel-picture" src=<%=recipe.image%> alt="Picture of finished recipe.">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+            <div class="transparent-background">
+            <% recipe.ingredientList.forEach(function(s) { %>
+            <table>
+                <thead>
+                    <tr>
+                        <th><%= s.section %></th>
+                    </tr>
+                </thead>
+                    <tbody>
+                        <% s.ingredients.forEach(function(i) { %>
+                            <tr>
+                                <td>
+                                <%= i.quantity %> <%= i.unit %> <%= i.ingredient %>
+                                </td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+                <% }) %>
+        </div>
+
+        <table class="transparent-background" id="comment-panel">
+            <thead>
+                <tr>
+                    <th>Edit Review</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <form action="/reviews/<%= review._id %>?_method=PUT" method="POST">
+                        <form id="edit-review-form" method="POST">
+                            <input name="content" value="<%= review.content %>">
+                            <button type="submit">Save Comment</button>
+                      </td>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
 
             <table class="transparent-background">
                 <thead>
                     <tr>
-                        <th>Edit</th>
+                        <th>Method</th>
                     </tr>
                 </thead>
                 <tbody>
+                    <% recipe.method.forEach(function(m) { %>
                         <tr>
-                            <td><%= review.content %></td>
+                            <td>● <%= m %></td>
                         </tr>
+                    <% }) %>
                 </tbody>
             </table>
         

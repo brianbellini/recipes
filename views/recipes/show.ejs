@@ -68,30 +68,29 @@
             
 
                         <% if (recipe.reviews.length) { %>
-                            <% recipe.reviews.forEach(function(r) { %>
+                            <% recipe.reviews.forEach(function(review) { %>
                                 <tr>
                                     <% console.log("USER: ", user.googleId) %>
-                                    <% console.log("CREATOR: ", r.creatorID) %>
-                                    <% if (user.googleId == r.creatorID) { %>
+                                    <% console.log("CREATOR: ", review.creatorID) %>
+                                    <% if (user.googleId == review.creatorID) { %>
                                         <td>
                                             <form id="edit-review-button" method="GET"
-                                            action="/recipes/<%= r._id %>/edit/">
+                                            action="/reviews/<%= review._id %>/edit">
                                             <input type="submit" value="✏️">
                                             </form>
-                                        </td>
-                                        <td>
+                                       
                                             <form id="delete-review-button" method="POST"
-                                            action="/recipes/<%= r._id %>?_Method:DELETE">
-                                            <input hidden type="text" name="recipeID" value="<%= recipe._id %>">
+                                            action="/reviews/<%= review._id %>?_method=DELETE">
                                             <input type="submit" value="🗑">
                                             </form>
+
                                         </td>
                                     <% } else { %>
-                                        <td><%= r.creatorName %> :  </td>
+                                        <td><%= review.creatorName %> :  </td>
                                     <% } %>
 
 
-                                    <td>● <%= r.content %></td>
+                                    <td>● <%= review.content %></td>
                                     <% }) %>
                             <% } else { %>
                                     <h4>No Reviews Yet</h4>

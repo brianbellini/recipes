@@ -2,34 +2,43 @@ var Recipe = require('../models/recipe');
 
 
 module.exports = {
-  create,
   edit,
   delete: deleteReview,
+  update: updateReview,
 };
 
-function create(req, res) {
-  Recipe.findById(req.params.id, function(err, recipe) {
-    recipe.reviews.push(req.body);
-    recipe.save(function(err) {
-      res.redirect(`/recipes/${recipe._id}`);
-    });
-  });
+function updateReview(req, res) {
+    Recipe.findOne({'reviews._id': req.params.id}, function(err, recipe) {
+        const reviewSub = recipe.reviews.id(req.params.id);
+        reviewSub.content = req.body.content;
+        recipe.save(function(err) {
+            res.redirect(`/recipes/${recipe._id}`);
+        })
+    })
 }
+
+
 
 function edit(req, res) {
-    console.log("THIS IS THE EDIT REVIEW ID: ", req.params.id)
+    
+    console.log("THIS IS THE EDIT RECIPE ID: ", req.params.id)
 
-    Recipe.reviews.findById(req.params.id, function(err, review) {
-        
-            res.render('recipes/edit', {review, title: "Edit Review", user: req.user});
+
+    Recipe.findOne({'reviews._id': req.params.id}, function(err, recipe) {
+        const reviewSub = recipe.reviews.id(req.params.id);
+        console.log("THIS IS THE EDIT REVIEW ID: ", reviewSub);
+        res.render(`recipes/edit`, {review: reviewSub, recipe, title: "Edit Review", user: req.user});
 
         })
-    
-}
+    }
 
 
 function deleteReview(req, res) {
-    console.log("THIS IS THE DELETE REVIEW ID: ", req.params.id)
-    Reviews.deleteOne(req.params.id);
-    res.redirect(`/recipes/${recipe.id}`);
+    Recipe.findOne({'reviews._id': req.params.id}, function(err, recipe) {
+        const reviewSub = recipe.reviews.id(req.params.id);
+        reviewSub.remove();
+        recipe.save(function(err){
+            res.redirect(`/recipes/${recipe._id}`);
+        })
+  })
 }

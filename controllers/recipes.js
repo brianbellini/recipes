@@ -4,6 +4,7 @@ const User = require('../models/user');
 module.exports = {
     index,
     show,
+    create,
 };
 
 function index(req, res, next) {
@@ -20,3 +21,12 @@ function show(req, res, next) {
         res.render('recipes/show', {recipe, title: recipe.title, user: req.user})
     })
 }
+
+function create(req, res) {
+    Recipe.findById(req.params.id, function(err, recipe) {
+      recipe.reviews.push(req.body);
+      recipe.save(function(err) {
+        res.redirect(`/recipes/${recipe._id}`);
+      });
+    });
+  }
