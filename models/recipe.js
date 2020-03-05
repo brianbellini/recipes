@@ -1,5 +1,13 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+
+const reviewSchema = new Schema({
+    content: String,
+    creatorID: String,
+  }, {
+    timestamps: true
+  });
+
 
 const recipeSchema = new Schema ({
     title: String,
@@ -17,6 +25,7 @@ const recipeSchema = new Schema ({
                                         unit: String }]}
                         ],
     method: [String],
+    reviews: [reviewSchema],
 }, {
     timestamps: true,
 });

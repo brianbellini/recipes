@@ -7,70 +7,108 @@
     </div>
     <%- include('../partials/nav') %>
     <main>
+ 
+    <section class="page-grid">
 
-      
-    <section class="show-page-grid">
-    <div class= "image-panel">
-        <img class= "recipe-picture shadow" src=<%=recipe.image%> alt="Picture of finished recipe.">
-    </div>
-
-    <div class= "title-panel">
-
-        <div class="rating">
-            <% for (i = 0; i < recipe.rating; i++) { %>
-                <%= "★" %>
-            <% } %>
-        </div>
-        <div class="notes">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas non voluptatum aut. Cumque, eveniet eaque odio laborum molestiae, veritatis ullam mollitia quidem amet non facilis esse molestias debitis rerum quam!
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas non voluptatum aut. Cumque, eveniet eaque odio laborum molestiae, veritatis ullam mollitia quidem amet non facilis esse molestias debitis rerum quam!
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas non voluptatum aut. Cumque, eveniet eaque odio laborum molestiae, veritatis ullam mollitia quidem amet non facilis esse molestias debitis rerum quam!
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas non voluptatum aut. Cumque, eveniet eaque odio laborum molestiae, veritatis ullam mollitia quidem amet non facilis esse molestias debitis rerum quam!
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas non voluptatum aut. Cumque, eveniet eaque odio laborum molestiae, veritatis ullam mollitia quidem amet non facilis esse molestias debitis rerum quam!
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas non voluptatum aut. Cumque, eveniet eaque odio laborum molestiae, veritatis ullam mollitia quidem amet non facilis esse molestias debitis rerum quam!
-
-        </div>
-    </div>
-
-    <div class="ingredients-panel">
-        <table>
-            <% recipe.ingredientList.forEach(function(s) { %>
-            <thead>
-                <tr>
-                    <th><%= s.section %></th>
-                </tr>
-            </thead>
+        <div class="panel">
+            
+            <table class="recipe-panel shadow">
                 <tbody>
-                    <% s.ingredients.forEach(function(i) { %>
-                        <tr>
-                            <td>
-                            <%= i.quantity %> <%= i.unit %> <%= i.ingredient %>
-                            </td>
-                        </tr>
-
-                    <% }) %>
+                    <tr>
+                        <td>
+                            <img class= "panel-picture" src=<%=recipe.image%> alt="Picture of finished recipe.">
+                        </td>
+                    </tr>
                 </tbody>
-            <% }) %>
-        </table>
-    </div>
+            </table>
 
-    <div class="method-panel">
-        <table>
+
+            <div class="transparent-background">
+            <% recipe.ingredientList.forEach(function(s) { %>
+            <table>
+                <thead>
+                    <tr>
+                        <th><%= s.section %></th>
+                    </tr>
+                </thead>
+                    <tbody>
+                        <% s.ingredients.forEach(function(i) { %>
+                            <tr>
+                                <td>
+                                <%= i.quantity %> <%= i.unit %> <%= i.ingredient %>
+                                </td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+                <% }) %>
+        </div>
+
+        <table class="transparent-background" id="comment-panel">
             <thead>
                 <tr>
-                    <th>Method</th>
+                    <th>Reviews</th>
                 </tr>
             </thead>
             <tbody>
-                <% recipe.method.forEach(function(m) { %>
-                    <%= m %>
+                <tr>
+                    <td>
+                        <form id="add-review-form" method="POST"
+                        action="/recipes/<%= recipe._id %>/reviews">
+                        <input type="text" name="content">
+                        <input type="text" value="<%= user._id %>" name="creatorID" hidden>
+                        <input type="submit" value="Add Review">
+                        </form>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
 
-                <% }) %>
+            
+
+                        <% if (recipe.reviews.length) { %>
+                            <% recipe.reviews.forEach(function(r) { %>
+                                <tr>
+                                    <% console.log("USER: ", user._id) %>
+                                    <% console.log("CREATOR: ", r.creatorID) %>
+                                    <% if (user._id == r.creatorID) { %>
+                                        <td>
+                                        <a class="not-a-button" href="/recipes/#/edit/">Edit</a>
+                                        </td>
+                                    <% } else { %>
+                                        <td>name :  </td>
+                                    <% } %>
+
+
+                                    <td>● <%= r.content %></td>
+                                    <% }) %>
+                            <% } else { %>
+                                    <h4>No Reviews Yet</h4>
+                            <% } %>
+                        </tr>
+                    </td>
+                </tr>
             </tbody>
 
-        </table>
+            <table class="transparent-background">
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% recipe.method.forEach(function(m) { %>
+                        <tr>
+                            <td>● <%= m %></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        
 
-    </div>
+
+        
+    </table>
 
 </section>
 

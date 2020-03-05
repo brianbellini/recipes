@@ -17,6 +17,6 @@ function show(req, res, next) {
     Recipe.findById(req.params.id)
     .exec(function(err, recipe) {
         console.log(recipe);
-        res.render('recipes/show', {recipe, title: recipe.title, user: req.user.id})
+        res.render('recipes/show', {recipe, title: recipe.title, user: req.user})
     })
 }

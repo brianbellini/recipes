@@ -113,60 +113,33 @@ nav {
   background-size: cover;
 }
 
-.show-page-grid {
-  height: 100vh;
-  width: 100%;
+.transparent-background {
   display: grid;
-  grid-template-columns:  0.1fr 3fr 0.1fr 3fr 0.1fr;
-  grid-template-rows: 70px 3fr 0.1fr 3fr 0.1fr;
+  width: 80%;
+  height: 1fr;
+  padding: 20px;
+  margin: 50px;
+  background-color: rgba(255,255,255,0.69);
+  border-radius: 3px;
   align-items: center;
-  justify-items: center;
+  justify-items: center; 
 }
 
-.image-panel {
-  grid-area: 2 / 2;
+.new-note-form {
+  float: right;
 }
 
-.recipe-picture {
-  width: 30vw;
-  height: 30vh;
-  border: 20px solid black;
-  border-radius: 3px;
-  object-fit: cover;
+.note-input {
+  width: 500px;
+  height: 200px;
+  background-color: rgba(255,255,255,0);
+  border: none;
 }
 
-.title-panel {
+.hidden {
+  background-color: rgba(255,255,255,1);
+}
 
-  width: 30vw;
-  height: 30vh;
+#comment-panel {
   
-  grid-area: 2 / 4;
-  border-radius: 3px;
 }
-
-.rating {
-  width: 100%;
-  text-align: center;
-  padding: 10px;
-  margin: 0 auto;
-  font-size: 20px;;
-  background-color: #D8DFE6;
-}
-
-.notes {
-  padding: 10px;
-  height: 85%;
-  overflow: scroll;
-  font-size: 20px;
-}
-
-.ingredients-panel {
-
-  width: 30vw;
-  height: 30vh;
-  /* border: 20px solid black; */
-  
-  grid-area: 4 / 2;
-  border-radius: 3px;
-}
-

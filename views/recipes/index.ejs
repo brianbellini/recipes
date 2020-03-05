@@ -9,21 +9,22 @@
     <main>
 
     <section class="page-grid">
+        
         <div class="panel">
 
             <% recipes.forEach(function(r) { %>
                 
             <table class="recipe-panel shadow">
                 <tbody>
-                <tr>
-                    <td>
-                        <a href="/recipes/<%= r._id %>">
-                            <img class="panel-picture"
-                            src="<%= r.image %>""
-                            alt="Plate of <%= r.title %>">
-                        </a>
-                    </td>
-                </tr>
+                    <tr>
+                        <td>
+                            <a href="/recipes/<%= r._id %>">
+                                <img class="panel-picture"
+                                src="<%= r.image %>""
+                                alt="Plate of <%= r.title %>">
+                            </a>
+                        </td>
+                    </tr>
                 <tr>
                     <td class="panel-title">
                         <a href="/recipes/<%= r._id %>">

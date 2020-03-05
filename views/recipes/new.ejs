@@ -1,4 +1,60 @@
-<body>
+<%- include('../partials/header') %>
+
+<body id="recipes-show">
+    <div class="page-topper">
+        <div class="page-title">
+            <h1><%= title %></h1>
+        </div>
+    </div>
     <%- include('../partials/nav') %>
     <main>
-      <h1><%= title %></h1>
+ 
+    <section class="page-grid">
+
+        <div class="panel">
+            
+            <table class="recipe-panel shadow">
+                <tbody>
+                    <tr>
+                        <td>
+                            <img class= "panel-picture" src=<%=recipe.image%> alt="Picture of finished recipe.">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+            <table class="transparent-background">
+                    <thead>
+                        <tr>
+                            <th>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <form>
+                                    <form id="new-note-form" action="/users/<%= recipe._id %> method="GET">
+                                        <input class="note-input" type="text" name="note">
+                                        <fieldset class="rating">
+                                            <legend>Rate & save:</legend>
+                                            <select name="Rating">
+                                                <option value="5">★★★★★</option>
+                                                <option value="4">★★★★</option>
+                                                <option value="3">★★★</option>
+                                                <option value="2">★★</option>
+                                                <option value="1">★</option>
+                                            </select>
+                                            <input type="submit" value="Save">
+                                        </fieldset>                                        
+                                    </form>
+                                </form>
+                            </td>
+                        </tr>
+                    </tbody>
+            </table>
+        </div>
+    </section>
+    
+<%- include('../partials/footer') %>
