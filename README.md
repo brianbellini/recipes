@@ -24,6 +24,7 @@
 <h4>Getting Started:</h4>
 
 [Deployed App](https://recipes-bb.herokuapp.com/)
+	
 [Trello Board - Planning](https://trello.com/b/a2yZklq4/project-2)
 
 
