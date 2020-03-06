@@ -20,17 +20,11 @@ function updateReview(req, res) {
 
 
 function edit(req, res) {
-    
-    console.log("THIS IS THE EDIT RECIPE ID: ", req.params.id)
-
-
     Recipe.findOne({'reviews._id': req.params.id}, function(err, recipe) {
         const reviewSub = recipe.reviews.id(req.params.id);
-        console.log("THIS IS THE EDIT REVIEW ID: ", reviewSub);
         res.render(`recipes/edit`, {review: reviewSub, recipe, title: "Edit Review", user: req.user});
-
-        })
-    }
+    })
+}
 
 
 function deleteReview(req, res) {
@@ -40,5 +34,5 @@ function deleteReview(req, res) {
         recipe.save(function(err){
             res.redirect(`/recipes/${recipe._id}`);
         })
-  })
+    })
 }

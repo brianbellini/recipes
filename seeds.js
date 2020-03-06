@@ -1,4 +1,4 @@
-// utility to initialize database
+// Initialize database
 require('dotenv').config();
 require('./config/database');
 const Recipe = require('./models/recipe');
@@ -12,7 +12,6 @@ const p2 = User.deleteMany({});
 Promise.all([p1, p2])
 
 .then(function() {
-    console.log(data)
   return Recipe.create(data.recipes);
 })
 
