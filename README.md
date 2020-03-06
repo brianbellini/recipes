@@ -1,10 +1,9 @@
 <h1>...Anything But Apples</h1>
 <h3>Project 2</h3>
 
-![Image Description](./public/images/screenshots/Screen Shot 2020-03-06 at 8.34.21 AM.png)
-![Image Description](./public/images/screenshots/Screen Shot 2020-03-06 at 8.57.35 AM.png)
-![Image Description](./public/images/screenshots/Screen Shot 2020-03-06 at 8.57.54 AM.png)
-![Image Description](./images/Screen_Shot.png)
+![Image Description](./public/images/screenshots/ScreenShot1.png)
+![Image Description](./public/images/screenshots/ScreenShot2.png)
+![Image Description](./public/images/screenshots/ScreenShot3.png)
 
 <h4>Technologies Used:</h4>
 
