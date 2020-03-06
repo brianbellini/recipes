@@ -8,29 +8,30 @@
 
 <h4>Technologies Used:</h4>
 
-	HTML
+  	HTML
+  	JavaScript
 	CSS
-	JavaScript
-  MongoDB
-  Heroku
-  Express
-  EJS
-  Mongoose
-  Passport
-  OAuth
+	MongoDB
+	Heroku
+	Express
+	EJS
+	Mongoose
+	Passport
+	OAuth
 
 
 
 
 <h4>Getting Started:</h4>
-[Deployed App](https://recipes-bb.herokuapp.com/)
-[Trello Board - Planning](https://trello.com/b/a2yZklq4/project-2)
+
+	[Deployed App](https://recipes-bb.herokuapp.com/)
+	[Trello Board - Planning](https://trello.com/b/a2yZklq4/project-2)
 
 
 
 <h4>Next Steps:</h4>
 
 	Adding categories to navigation bar.
-  Adding search functionality.
-  Adding ablitity to save recipes to user page.
-  Adding ability to reply to reviews.
+  	Adding search functionality.
+  	Adding ablitity to save recipes to user page.
+  	Adding ability to reply to reviews.
