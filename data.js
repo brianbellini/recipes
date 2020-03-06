@@ -1,5 +1,5 @@
 module.exports.recipes = [
-    {title: "HONEY PORK WITH BOK CHOY",
+    {title: "TIMMY'S HONEY PORK WITH BOK CHOY",
     rating: 5,
     category: "Dinner",
     image: "/images/meals/honey_pork_with_bok_choy.png",
@@ -34,7 +34,7 @@ module.exports.recipes = [
                 "Divide rice and pork between bowls and top with extra scallions and sesame seeds to serve."]
     },
     
-    {title: "BALI BUDDHA BOWL",
+    {title: "NINI'S BALI BUDDHA BOWL",
     rating: 5,
     category: "Dinner",
     image: "/images/meals/bali_buddha_bowl.png",
@@ -63,7 +63,7 @@ module.exports.recipes = [
                 "Drizzle over satay sauce to serve."]
     },
 
-    {title: "BBQ LAMB & MIXED PEPPER SALAD",
+    {title: "JAY'S BBQ LAMB & MIXED PEPPER SALAD",
     rating: 5,
     category: "Dinner",
     image: "/images/meals/bbq_lamb_mixed_pepper_salad.png",
@@ -89,7 +89,7 @@ module.exports.recipes = [
                 "Divide quinoa and bell pepper slices between plates and top with lamb, feta and lemon wedge to serve."]
     },
 
-    {title: "KOREAN BEEF BULGOGI BOWL",
+    {title: "WHEE'S BEEF BULGOGI BOWL",
     rating: 5,
     category: "Dinner",
     image: "/images/meals/korean_beef_bulgogi_bowl.png",
@@ -123,7 +123,7 @@ module.exports.recipes = [
                 "Divide rice between bowls and top with beef, vegetables and kimchi. Scatter over scallions and peanuts to serve."]
     },
 
-    {title: "BAKED SALMON WITH SWEET POTATO SALAD",
+    {title: "DAWN'S SALMON WITH SWEET POTATO SALAD",
     rating: 5,
     category: "Dinner",
     image: "/images/meals/baked_salmon_with_sweet_potato_salad.png",
@@ -149,7 +149,7 @@ module.exports.recipes = [
                 "Divide spinach between plates and top with sweet potato, tomatoes and pine nuts. Add salmon, season and squeeze over lemon to serve."]
     },
 
-    {title: "ONE POT CHICKEN MEATBALLS WITH RISONI",
+    {title: "JIM'S ONE POT CHICKEN MEATBALLS WITH RISONI",
     rating: 5,
     category: "Dinner",
     image: "/images/meals/one_pot_chicken_meatballs_with_risoni.png",

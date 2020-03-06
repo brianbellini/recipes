@@ -10,7 +10,7 @@ module.exports = {
 function index(req, res, next) {
   console.log(req.user)
     Recipe.find({}, function(err, recipes) {
-    res.render('recipes/index', {title: "All Recipes", user: req.user, recipes});
+    res.render('recipes/index', {title: "...Anything But Apples", user: req.user, recipes});
 });
 }
 

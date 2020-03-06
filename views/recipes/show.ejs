@@ -7,119 +7,105 @@
     </div>
     <%- include('../partials/nav') %>
     <main>
- 
-    <section class="page-grid">
-
-        <div class="panel">
-            
-            <table class="recipe-panel shadow">
-                <tbody>
-                    <tr>
-                        <td>
-                            <img class= "panel-picture" src=<%=recipe.image%> alt="Picture of finished recipe.">
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
-
+        <section class="page-grid">
+            <div class="panel">
+            <div class="recipe-panel shadow ">
+                <img class= "show-picture" src=<%=recipe.image%> alt="Picture of finished recipe.">
+            </div>
             <div class="transparent-background">
-            <% recipe.ingredientList.forEach(function(s) { %>
-            <table>
-                <thead>
-                    <tr>
-                        <th><%= s.section %></th>
-                    </tr>
-                </thead>
+                <% recipe.ingredientList.forEach(function(s) { %>
+                <table class="section-table">
+                    <thead>
+                        <tr>
+                            <th><%= s.section %></th>
+                        </tr>
+                    </thead>
                     <tbody>
                         <% s.ingredients.forEach(function(i) { %>
-                            <tr>
-                                <td>
-                                <%= i.quantity %> <%= i.unit %> <%= i.ingredient %>
-                                </td>
-                            </tr>
+                        <tr>
+                            <td><%= i.quantity %> <%= i.unit %> - <%= i.ingredient %></td>
+                        </tr>
                         <% }) %>
                     </tbody>
                 </table>
                 <% }) %>
-        </div>
+            </div>
 
-        <table class="transparent-background" id="comment-panel">
-            <thead>
-                <tr>
-                    <th>Reviews</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <form id="add-review-form" method="POST"
-                        action="/recipes/<%= recipe._id %>/reviews">
-                        <input type="text" name="content">
-                        <input type="text" value="<%= user.googleId %>" name="creatorID" hidden>
-                        <input type="text" value="<%= user.name %>" name="creatorName" hidden>
-                        <input type="submit" value="Add Review">
-                        </form>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-
-            
-
-                        <% if (recipe.reviews.length) { %>
-                            <% recipe.reviews.forEach(function(review) { %>
-                                <tr>
-                                    <% console.log("USER: ", user.googleId) %>
-                                    <% console.log("CREATOR: ", review.creatorID) %>
+            <div class="transparent-background" id="comment-panel">
+                <table>
+                    <thead>
+                        <tr>
+                            <th colspan="3">Reviews</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="review-box-cell" colspan="4">
+                                <form id="add-review-form" method="POST" action="/recipes/<%= recipe._id %>/reviews">
+                                    <textarea class="review-box"  name="content"></textarea>
+                                    <input type="text" value="<%= user.googleId %>" name="creatorID" hidden>
+                                    <input type="text" value="<%= user.name %>" name="creatorName" hidden>
+                                </td>
+                        <tr>
+                            <td colspan="3">
+                                    <input class="add-review-button" type="submit" value="Add Review">
+                            </td>
+                        </tr>
+                                </form>
+                        <tr>
+                            <% if (recipe.reviews.length) { %>
+                                <% recipe.reviews.forEach(function(review) { %>
+                                    <% if (user.googleId == review.creatorID) { %>
+                                        <tr>
+                                            <td class="edit-button">
+                                                <form id="edit-review-button" method="GET"
+                                                    action="/reviews/<%= review._id %>/edit">
+                                                    <input class="button edit-button" type="submit" value="Edit">
+                                                </form>
+                                            </td>
+                                    <% } else { %>
+                                            <td class="reviewer-name"><%= review.creatorName %>
+                                            </td>
+                                    <% } %>
+                                            <td class="review-cell">● <%= review.content %>
+                                            </td>
                                     <% if (user.googleId == review.creatorID) { %>
                                         <td>
-                                            <form id="edit-review-button" method="GET"
-                                            action="/reviews/<%= review._id %>/edit">
-                                            <input type="submit" value="✏️">
+                                            <form id="delete-review-button" method="POST" action="/reviews/<%= review._id %>?_method=DELETE">
+                                                <input class="button delete-button" type="submit" value="X">
                                             </form>
-                                       
-                                            <form id="delete-review-button" method="POST"
-                                            action="/reviews/<%= review._id %>?_method=DELETE">
-                                            <input type="submit" value="🗑">
-                                            </form>
-
                                         </td>
-                                    <% } else { %>
-                                        <td><%= review.creatorName %> :  </td>
                                     <% } %>
-
-
-                                    <td>● <%= review.content %></td>
-                                    <% }) %>
+                        </tr>
+                                <% }) %>
                             <% } else { %>
-                                    <h4>No Reviews Yet</h4>
+                                <tr>
+                                    <td><h3>No Reviews Yet</h3>
+                                    </td>
+                                </tr>
                             <% } %>
-                        </tr>
-                    </td>
-                </tr>
-            </tbody>
+                    </tbody>
+                </table>
+            </div>
+                
 
-            <table class="transparent-background">
-                <thead>
-                    <tr>
-                        <th>Method</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% recipe.method.forEach(function(m) { %>
+            <div class="transparent-background">
+                <table>
+                    <thead>
                         <tr>
-                            <td>● <%= m %></td>
+                            <th colspan="2">Method</th>
                         </tr>
-                    <% }) %>
-                </tbody>
-            </table>
-        
-
-
-        
-    </table>
-
-</section>
+                    </thead>
+                    <tbody>
+                        <% recipe.method.forEach(function(m) { %>
+                            <tr>
+                                <td class="method-bullet">● </td>
+                                <td><%= m %></td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </section>
 
 <%- include('../partials/footer') %>

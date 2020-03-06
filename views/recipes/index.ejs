@@ -9,7 +9,7 @@
     <main>
 
     <section class="page-grid">
-        
+
         <div class="panel">
 
             <% recipes.forEach(function(r) { %>
@@ -28,7 +28,7 @@
                 <tr>
                     <td class="panel-title">
                         <a href="/recipes/<%= r._id %>">
-                            <%= r.title %>
+                            <%= r.title.toUpperCase() %>
                         </a>
                     </td>
                 </tr>
