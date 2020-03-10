@@ -1,9 +1,9 @@
 <div class="menu-bar">
     <nav>
         <% if (user) { %>
-            <a class="nav-icon" href="/logout">🔓</a>
+            <a class="nav-icon" href="/logout">Logout</a>
         <% } else { %>
-            <a class="nav-icon" href="/auth/google">🔒</a>
+            <a class="nav-icon" href="/auth/google">Login</a>
         <% } %>
         <a class="nav-icon" href="/recipes" <%- title === 'All Recipes' ? 'class="active"' : '' %>>Home</a>
     </nav>
