@@ -3,7 +3,7 @@ var router = express.Router();
 const usersCtrl = require('../controllers/users')
 
 /* GET users listing. */
-router.get('/recipes', usersCtrl.index);
+router.get('/recipes',isLoggedIn, usersCtrl.index);
 
 function isLoggedIn(req, res, next) {
     if ( req.isAuthenticated() ) return next();

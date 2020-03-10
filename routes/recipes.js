@@ -3,7 +3,7 @@ const router = express.Router();
 const recipesCtrl = require('../controllers/recipes')
 
 router.get('/', recipesCtrl.index);
-router.post('/:id/reviews', recipesCtrl.create);
+router.post('/:id/reviews', isLoggedIn, recipesCtrl.create);
 router.get('/:id', isLoggedIn, recipesCtrl.show);
 
 function isLoggedIn(req, res, next) {
