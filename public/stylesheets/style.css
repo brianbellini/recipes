@@ -234,3 +234,7 @@ th {
 .method-bullet {
   vertical-align: text-top;
 }
+
+.picture-div {
+  width: 1fr;
+}
